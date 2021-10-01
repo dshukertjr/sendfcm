@@ -9,6 +9,7 @@
     "lint": "tsc --project ./ --pretty --noEmit && eslint . --ext js,jsx,ts,tsx --fix"
   },
   "dependencies": {
+    "@hubspot/api-client": "^5.0.0",
     "@supabase/supabase-js": "^1.23.0",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",

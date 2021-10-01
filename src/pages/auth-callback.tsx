@@ -1,7 +1,7 @@
 import axios from 'axios'
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import { SITE_NAME, SITE_URL, supabase } from '../utils/constans'
+import { CLIENT_ID, SITE_NAME, SITE_URL, supabase } from '../utils/constans'
 import { TokenRequest } from '../utils/types'
 
 const AuthCallbackPage: NextPage<{
@@ -30,10 +30,7 @@ export const getServerSideProps: GetServerSideProps<{
   installed?: boolean
   errorMessage?: string
 }> = async ({ query }) => {
-  console.log(query)
   const code = query.code as string
-  console.log('code', code)
-  console.log('\n')
 
   if (!code) {
     // If this was not a redirect from OAuth, do nothing
@@ -45,8 +42,8 @@ export const getServerSideProps: GetServerSideProps<{
   try {
     const values: TokenRequest = {
       grant_type: 'authorization_code',
-      client_id: process.env.NEXT_PUBLIC_CLIENT_ID!,
-      client_secret: process.env.CLIENT_SECRET!,
+      client_id: CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET || '',
       redirect_uri: `${SITE_URL}/auth-callback`,
       code: code,
     }
