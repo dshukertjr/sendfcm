@@ -55,27 +55,35 @@ const HomePage: NextPage = () => {
         </div>
       </header>
 
-      <main>
-        <Section
-          title="Send personalized push notifications from your workflow"
-          imageUrl="/images/lp/workflow.png"
-          isTextLeft={false}
-          patternUrl="/images/patterns/waves.svg"
-        ></Section>
-        <Section
-          title="Send 1 on 1 notifications to your contacts"
-          imageUrl="/images/lp/workflow.png"
-          isTextLeft={true}
-          patternUrl="/images/patterns/arrow.svg"
-        ></Section>
-        <Section
-          title="See the history of notifications on contact's activity timeline"
-          imageUrl="/images/lp/workflow.png"
-          isTextLeft={false}
-          patternUrl="/images/patterns/squares.svg"
-        ></Section>
+      <main className="relative">
+        <img className="absolute top-96 hidden md:block" src="/images/lp/main-ellipse.svg" alt="" />
+        <img
+          className="absolute top-1/2 right-0 transform -rotate-180 hidden md:block"
+          src="/images/lp/main-ellipse.svg"
+          alt=""
+        />
+        <div className="relative">
+          <Section
+            title="Send personalized push notifications from your workflow"
+            imageUrl="/images/lp/workflow.png"
+            isTextLeft={false}
+            patternUrl="/images/patterns/waves.svg"
+          ></Section>
+          <Section
+            title="Send 1 on 1 notifications to your contacts"
+            imageUrl="/images/lp/workflow.png"
+            isTextLeft={true}
+            patternUrl="/images/patterns/arrow.svg"
+          ></Section>
+          <Section
+            title="See the history of notifications on contact's activity timeline"
+            imageUrl="/images/lp/workflow.png"
+            isTextLeft={false}
+            patternUrl="/images/patterns/squares.svg"
+          ></Section>
 
-        <Pricing></Pricing>
+          <Pricing></Pricing>
+        </div>
       </main>
 
       <Footer></Footer>

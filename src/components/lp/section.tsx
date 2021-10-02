@@ -16,7 +16,7 @@ const Section: FC<{ title: string; imageUrl: string; isTextLeft: boolean; patter
         {props.isTextLeft ? <div className="md:flex-grow md:order-1"></div> : null}
         <h2
           className={`text-4xl font-medium mb-16 md:w-1/2 md:max-w-lg md:order-2 ${
-            props.isTextLeft ? 'md:pr-4' : 'md:pl-4'
+            props.isTextLeft ? 'md:pr-6' : 'md:pl-6'
           }`}
         >
           {props.title}
