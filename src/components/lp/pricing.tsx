@@ -19,14 +19,14 @@ const Pricing: FC = () => {
         src="/images/patterns/half-circles.svg"
         alt=""
       />
-      <div className="relative">
+      <div className="relative md:text-center">
         <h2 className="text-5xl text-center">Pricing</h2>
-        <p className="py-8 text-lg">
+        <p className="py-8 text-lg text-center">
           We provide simple pricing model for business all sizes and shapes.
         </p>
-        <div className="p-4 shadow-yellow bg-white">
+        <div className="p-4 shadow-yellow bg-white mx-auto inline-block md:text-left md:py-8 md:px-16">
           <h3 className="">Professional</h3>
-          <div className="text-4xl py-2">
+          <div className="text-4xl py-2 md:font-bold">
             ¥20,000
             <span className="text-xl">/month</span>
           </div>
@@ -34,7 +34,7 @@ const Pricing: FC = () => {
             return (
               <div key={sellingPoint} className="flex items-center py-2">
                 <img className="w-8 h-8" src="/images/check.svg" alt="" />
-                <div className="pl-2">{sellingPoint}</div>
+                <div className="pl-2 md:text-xl">{sellingPoint}</div>
               </div>
             )
           })}
