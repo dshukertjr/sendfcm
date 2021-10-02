@@ -20,12 +20,12 @@ const Pricing: FC = () => {
         alt=""
       />
       <div className="relative md:text-center">
-        <h2 className="text-5xl text-center">Pricing</h2>
+        <h2 className="text-5xl text-center md:font-bold">Pricing</h2>
         <p className="py-8 text-lg text-center">
           We provide simple pricing model for business all sizes and shapes.
         </p>
         <div className="p-4 shadow-yellow bg-white mx-auto inline-block md:text-left md:py-8 md:px-16">
-          <h3 className="">Professional</h3>
+          <h3 className="md:text-lg">Professional</h3>
           <div className="text-4xl py-2 md:font-bold">
             ¥20,000
             <span className="text-xl">/month</span>
