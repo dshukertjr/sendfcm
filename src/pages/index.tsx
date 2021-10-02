@@ -63,13 +63,13 @@ const HomePage: NextPage = () => {
           patternUrl="/images/patterns/waves.svg"
         ></Section>
         <Section
-          title="Send 1 on 1 notificationn to a conntact"
+          title="Send 1 on 1 notifications to your contacts"
           imageUrl="/images/lp/workflow.png"
           isTextLeft={true}
           patternUrl="/images/patterns/arrow.svg"
         ></Section>
         <Section
-          title="See the history of notificationns on contact timelinen"
+          title="See the history of notifications on contact's activity timeline"
           imageUrl="/images/lp/workflow.png"
           isTextLeft={false}
           patternUrl="/images/patterns/squares.svg"
