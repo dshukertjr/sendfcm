@@ -5,6 +5,7 @@ import InstallButton from '../components/install-button'
 import Section from '../components/lp/section'
 import { SITE_NAME } from '../utils/constans'
 import Footer from '../components/footer'
+import Pricing from '../components/lp/pricing'
 
 const HomePage: NextPage = () => {
   return (
@@ -52,6 +53,8 @@ const HomePage: NextPage = () => {
           imageUrl="/images/workflow.png"
           isTextLeft={false}
         ></Section>
+
+        <Pricing></Pricing>
       </main>
 
       <Footer></Footer>
