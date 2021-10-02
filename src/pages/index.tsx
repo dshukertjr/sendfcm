@@ -7,7 +7,7 @@ import { SITE_NAME } from '../utils/constans'
 import Footer from '../components/footer'
 import Pricing from '../components/lp/pricing'
 
-const HomePage: NextPage = () => {
+const Page: NextPage = () => {
   return (
     <div>
       <Head>
@@ -91,4 +91,4 @@ const HomePage: NextPage = () => {
   )
 }
 
-export default HomePage
+export default Page
