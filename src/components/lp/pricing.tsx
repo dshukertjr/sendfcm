@@ -8,8 +8,13 @@ const Pricing: FC = () => {
     'Individual messages from CRM',
   ]
   return (
-    <div className="px-4 pt-4 pb-24 relative">
+    <div className="px-4 pt-4 pb-24 relative overflow-hidden">
       <img className="absolute z-0 top-0 -left-2" src="/images/patterns/circles.svg" alt="" />
+      <img
+        className="absolute z-0 -bottom-4 -right-4"
+        src="/images/patterns/half-circles.svg"
+        alt=""
+      />
       <div className="relative">
         <h2 className="text-5xl text-center">Pricing</h2>
         <p className="py-8 text-lg">
