@@ -1,6 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { SITE_NAME, SITE_URL } from '../utils/constans'
+import React from 'react'
+import InstallButton from '../components/install-button'
+import Section from '../components/lp/section'
+import { SITE_NAME } from '../utils/constans'
+import Footer from '../components/footer'
 
 const HomePage: NextPage = () => {
   return (
@@ -11,15 +15,46 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <header className="bg-yellow px-4 text-center relative overflow-hidden">
+        <img
+          className="absolute bottom-0 right-0 left-0 z-0"
+          src="/images/sm-header-ellipse.svg"
+          alt=""
+        />
+
+        <div className="logo flex items-center py-4">
+          <img className="w-9 h-9" src="/images/icon.svg" alt="FCM Hub logo" />
+          <span className="text-2xl block pl-2 font-bold">FCM Hub</span>
+        </div>
+
+        <h1 className="text-5xl py-14 relative">Send FCM from your HubSpot portal</h1>
+
+        <div className="relative">
+          <InstallButton></InstallButton>
+        </div>
+
+        <img className="relative py-14" src="/images/notification.svg" alt="" />
+      </header>
+
       <main>
-        <a
-          className="bg-yellow-500 p-4 text-white block"
-          target="blank"
-          href={`https://app.hubspot.com/oauth/authorize?scope=crm.objects.contacts.read&redirect_uri=${SITE_URL}/auth-callback&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`}
-        >
-          Install
-        </a>
+        <Section
+          title="Send personalized push notifications from your workflow"
+          imageUrl="/images/workflow.png"
+          isTextLeft={false}
+        ></Section>
+        <Section
+          title="Send 1 on 1 notificationn to a conntact"
+          imageUrl="/images/workflow.png"
+          isTextLeft={true}
+        ></Section>
+        <Section
+          title="See the history of notificationns on contact timelinen"
+          imageUrl="/images/workflow.png"
+          isTextLeft={false}
+        ></Section>
       </main>
+
+      <Footer></Footer>
     </div>
   )
 }
