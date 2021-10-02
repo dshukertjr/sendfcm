@@ -4,15 +4,25 @@ const Section: FC<{ title: string; imageUrl: string; isTextLeft: boolean; patter
   props
 ) => {
   return (
-    <div className="py-12 px-4 md:py-24 relative overflow-hidden">
+    <div className="py-12 px-4 md:px-0 md:py-24 relative overflow-hidden">
       <img
-        className={`absolute top-36 ${props.isTextLeft ? '-right-4' : '-left-4'}`}
+        className={`absolute top-36 md:z-10 md:top-auto md:bottom-8 ${
+          props.isTextLeft ? '-right-4' : '-left-4'
+        }`}
         src={props.patternUrl}
         alt=""
       />
-      <div className="m-auto max-w-5xl relative">
-        <h2 className="text-4xl font-medium mb-16">{props.title}</h2>
-        <img className="shadow" src={props.imageUrl} alt={props.title} />
+      <div className="m-auto relative md:flex md:items-center">
+        {props.isTextLeft ? <div className="md:flex-grow md:order-1"></div> : null}
+        <h2 className={`text-4xl font-medium mb-16 md:w-2/5 md:px-4 md:max-w-lg md:order-2`}>
+          {props.title}
+        </h2>
+        <img
+          className={`shadow md:w-3/5  ${props.isTextLeft ? 'md:order-3' : 'md:order-1'}`}
+          src={props.imageUrl}
+          alt={props.title}
+        />
+        {props.isTextLeft ? null : <div className="md:flex-grow md:order-3"></div>}
       </div>
     </div>
   )

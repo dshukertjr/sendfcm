@@ -58,19 +58,19 @@ const HomePage: NextPage = () => {
       <main>
         <Section
           title="Send personalized push notifications from your workflow"
-          imageUrl="/images/workflow.png"
+          imageUrl="/images/lp/workflow.png"
           isTextLeft={false}
           patternUrl="/images/patterns/waves.svg"
         ></Section>
         <Section
           title="Send 1 on 1 notificationn to a conntact"
-          imageUrl="/images/workflow.png"
+          imageUrl="/images/lp/workflow.png"
           isTextLeft={true}
           patternUrl="/images/patterns/arrow.svg"
         ></Section>
         <Section
           title="See the history of notificationns on contact timelinen"
-          imageUrl="/images/workflow.png"
+          imageUrl="/images/lp/workflow.png"
           isTextLeft={false}
           patternUrl="/images/patterns/squares.svg"
         ></Section>
