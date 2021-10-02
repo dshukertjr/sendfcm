@@ -16,25 +16,43 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="bg-yellow px-4 text-center relative overflow-hidden">
+      <header className="bg-yellow px-4 text-center relative overflow-hidden md:text-left">
         <img
-          className="absolute bottom-0 right-0 left-0 z-0"
+          className="absolute bottom-0 right-0 left-0 z-0 md:hidden"
           src="/images/sm-header-ellipse.svg"
           alt=""
         />
+        <img
+          className="hidden absolute bottom-0 right-0 z-0 md:block"
+          src="/images/header-ellipse.svg"
+          alt=""
+        />
+        <img
+          className="absolute right-28 top-3 hidden md:block"
+          src="/images/patterns/triangles.svg"
+          alt=""
+        />
+        <img
+          className="absolute -left-4 bottom-0 hidden md:block"
+          src="/images/patterns/lines.svg"
+          alt=""
+        />
 
-        <div className="logo flex items-center py-4">
-          <img className="w-9 h-9" src="/images/icon.svg" alt="FCM Hub logo" />
-          <span className="text-2xl block pl-2 font-bold">FCM Hub</span>
+        <div className="relative md:max-w-5xl md:m-auto">
+          <div className="logo flex items-center py-4">
+            <img className="w-9 h-9" src="/images/icon.svg" alt="FCM Hub logo" />
+            <span className="text-2xl block pl-2 font-bold">FCM Hub</span>
+          </div>
+
+          <div className="md:flex md:py-10">
+            <div className="w-1/2">
+              <h1 className="text-5xl py-14">Send FCM from your HubSpot portal</h1>
+
+              <InstallButton></InstallButton>
+            </div>
+            <img className="w-1/2 py-14" src="/images/notification.svg" alt="" />
+          </div>
         </div>
-
-        <h1 className="text-5xl py-14 relative">Send FCM from your HubSpot portal</h1>
-
-        <div className="relative">
-          <InstallButton></InstallButton>
-        </div>
-
-        <img className="relative py-14" src="/images/notification.svg" alt="" />
       </header>
 
       <main>
