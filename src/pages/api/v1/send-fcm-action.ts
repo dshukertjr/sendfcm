@@ -2,10 +2,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  name: string
+  message: string
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>): void {
-  console.log('req.body', req.body)
-  res.status(200).json({ name: 'John Doe' })
+  if (req.method === 'POST') {
+    // Process a POST request
+    res.status(200).json({ message: 'John Doe' })
+  } else {
+    res.status(405).json({ message: 'Invalid method' })
+  }
 }
