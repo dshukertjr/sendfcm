@@ -10,3 +10,7 @@ export const SITE_NAME = 'Send FCM'
 export const SITE_URL = 'https://sendfcm.vercel.app'
 
 export const supabase = createClient(SUPABASE_URL ?? '', SUPABASE_KEY ?? '')
+
+export const eventTemplateIds = {
+  sentNotification: '1077827',
+}
