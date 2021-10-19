@@ -4,7 +4,7 @@ import React from 'react'
 import InstallButton from '../components/install-button'
 import Section from '../components/lp/section'
 import { SITE_NAME } from '../utils/constans'
-import Footer from '../components/footer'
+import Footer from '../components/lp/footer'
 import Pricing from '../components/lp/pricing'
 
 const Page: NextPage = () => {
@@ -40,7 +40,7 @@ const Page: NextPage = () => {
 
         <div className="relative md:max-w-5xl md:m-auto">
           <div className="logo flex items-center py-4">
-            <img className="w-9 h-9" src="/images/icon.svg" alt="FCM Hub logo" />
+            <img className="w-9 h-9" src="/images/logo.svg" alt="FCM Hub logo" />
             <span className="text-2xl block pl-2 font-bold">FCM Hub</span>
           </div>
 

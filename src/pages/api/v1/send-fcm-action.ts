@@ -12,8 +12,23 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ): Promise<void> {
+  const clientSecret = process.env.CLIENT_SECRET as string
+  if (!clientSecret) {
+    res.status(403).json({ message: 'Forbidden no client secret found' })
+    return
+  }
+
+  const signature = req.headers['X-HubSpot-Signature'] as string
+  if (typeof signature != 'string') {
+    res.status(403).json({ message: 'Forbidden no signature found' })
+    return
+  }
   if (req.method === 'POST') {
-    const isValidWebhookCall = hubspotClient.webhooks.validateSignature('', '', req.body)
+    const isValidWebhookCall = hubspotClient.webhooks.validateSignature(
+      signature,
+      clientSecret,
+      req.body
+    )
     if (!isValidWebhookCall) {
       res.status(403).json({ message: 'Forbidden' })
     }

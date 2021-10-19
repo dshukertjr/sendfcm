@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { SITE_NAME } from '../utils/constans'
-import Footer from '../components/footer'
-import Header from '../components/header'
+import Footer from '../components/lp/footer'
+import Header from '../components/lp/header'
 import SimpleLayout from '../components/simple-layout'
 
 const Page: NextPage = () => {
