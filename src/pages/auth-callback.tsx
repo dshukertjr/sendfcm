@@ -1,7 +1,12 @@
+import { createClient } from '@supabase/supabase-js'
 import axios from 'axios'
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import { CLIENT_ID, SITE_NAME, SITE_URL, supabase } from '../utils/constans'
+import React from 'react'
+import LPFooter from '../components/lp/footer'
+import LPHeader from '../components/lp/header'
+import SimpleLayout from '../components/simple-layout'
+import { CLIENT_ID, SITE_NAME, SITE_URL, SUPABASE_URL } from '../utils/constans'
 import { TokenRequest } from '../utils/types'
 
 const AuthCallbackPage: NextPage<{
@@ -16,10 +21,14 @@ const AuthCallbackPage: NextPage<{
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <LPHeader></LPHeader>
+
+      <SimpleLayout>
         <div>{installed ? 'installed' : 'not installed'}</div>
         <div>{errorMessage}</div>
-      </main>
+      </SimpleLayout>
+
+      <LPFooter></LPFooter>
     </div>
   )
 }
@@ -40,10 +49,11 @@ export const getServerSideProps: GetServerSideProps<{
   }
 
   try {
+    const clientSecret = process.env.CLIENT_SECRET as string
     const values: TokenRequest = {
       grant_type: 'authorization_code',
       client_id: CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET || '',
+      client_secret: clientSecret,
       redirect_uri: `${SITE_URL}/auth-callback`,
       code: code,
     }
@@ -62,8 +72,6 @@ export const getServerSideProps: GetServerSideProps<{
         charset: 'utf-8',
       },
     })
-    console.log('data', tokenData)
-    console.log('\n')
 
     const { data: portalData } = await axios.get<{ hub_id: string }>(
       `https://api.hubapi.com/oauth/v1/access-tokens/${tokenData.access_token}`,
@@ -75,7 +83,9 @@ export const getServerSideProps: GetServerSideProps<{
       }
     )
 
-    const { error } = await supabase.from('portals').upsert({
+    const supabaseAdmin = createClient(SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY as string)
+
+    const { error } = await supabaseAdmin.from('portals').upsert({
       hub_id: portalData.hub_id,
       refresh_token: tokenData.refresh_token,
       access_token: tokenData.access_token,
