@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js'
 import axios from 'axios'
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -6,7 +5,7 @@ import React from 'react'
 import LPFooter from '../components/lp/footer'
 import LPHeader from '../components/lp/header'
 import SimpleLayout from '../components/simple-layout'
-import { CLIENT_ID, SITE_NAME, SITE_URL, SUPABASE_URL } from '../utils/constans'
+import { CLIENT_ID, SITE_NAME, SITE_URL } from '../utils/constans'
 import { TokenRequest } from '../utils/types'
 
 const AuthCallbackPage: NextPage<{
@@ -73,7 +72,7 @@ export const getServerSideProps: GetServerSideProps<{
       },
     })
 
-    const { data: portalData } = await axios.get<{ hub_id: string }>(
+    await axios.get<{ hub_id: string }>(
       `https://api.hubapi.com/oauth/v1/access-tokens/${tokenData.access_token}`,
       {
         headers: {
@@ -83,21 +82,6 @@ export const getServerSideProps: GetServerSideProps<{
       }
     )
 
-    const supabaseAdmin = createClient(SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY as string)
-
-    const { error } = await supabaseAdmin.from('portals').upsert({
-      hub_id: portalData.hub_id,
-      refresh_token: tokenData.refresh_token,
-      access_token: tokenData.access_token,
-      expires_in: tokenData.expires_in,
-    })
-    if (error) {
-      return {
-        props: {
-          errorMessage: error.message,
-        },
-      }
-    }
     return {
       props: {
         installed: true,
