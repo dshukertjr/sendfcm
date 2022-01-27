@@ -1,9 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import React from 'react'
+import React, { useState } from 'react'
 import { SITE_NAME } from '../../utils/constans'
 
 const Page: NextPage = () => {
+  const [apiKey, setApiKey] = useState<string>()
+
+  const saveApiKey = async (): Promise<void> => {
+    console.log(apiKey)
+  }
+
   return (
     <div>
       <Head>
@@ -18,7 +24,10 @@ const Page: NextPage = () => {
         <div className="flex-grow"></div>
       </header>
 
-      <main></main>
+      <main>
+        <input type="text" onChange={(e) => setApiKey(e.target.value)} />
+        <button onClick={saveApiKey}>save</button>
+      </main>
     </div>
   )
 }
