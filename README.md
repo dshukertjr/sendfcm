@@ -8,6 +8,8 @@ Send FCM is a tool to send Firebase Cloud Messaging push notifications from HubS
 1. Update `NEXT_PUBLIC_APP_ID`, `NEXT_PUBLIC_CLIENT_ID`, `CLIENT_SECRET` with your own [HubSpot App](https://developers.hubspot.com/docs/api/creating-an-app) in `.env.local`. 
 1. Update `DEVELOPER_API_KEY` with your own [Developer API Key](https://legacydocs.hubspot.com/docs/faq/developer-api-keys) in `.env.local`. 
 1. Ignore all the other values as they won't be needed to run basic OAuth flow in HubSpot. 
+1. Run `npm install` to install dependencies.
+1. Run `npm run dev` to start the app locally. 
 
 ## Supabase Scheme
 
