@@ -24,7 +24,7 @@ const Pricing: FC = () => {
         <p className="py-8 text-lg text-center">
           We provide simple pricing model for business all sizes and shapes.
         </p>
-        <div className="p-4 shadow-yellow bg-white mx-auto inline-block md:text-left md:py-8 md:px-16">
+        <div className="p-4 shadow-yellow bg-white mx-auto md:inline-block md:text-left md:py-8 md:px-16">
           <h3 className="md:text-lg">Professional</h3>
           <div className="text-4xl py-2 md:font-bold">
             ¥20,000

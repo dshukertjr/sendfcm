@@ -45,12 +45,12 @@ const Page: NextPage = () => {
           </div>
 
           <div className="md:flex md:py-10">
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <h1 className="text-5xl py-14">Send FCM from your HubSpot portal</h1>
 
               <InstallButton></InstallButton>
             </div>
-            <img className="w-1/2 py-14" src="/images/notification.svg" alt="" />
+            <img className="py-14 md:w-1/2" src="/images/notification.svg" alt="" />
           </div>
         </div>
       </header>
