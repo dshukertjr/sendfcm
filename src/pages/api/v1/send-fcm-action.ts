@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import * as hubspot from '@hubspot/api-client'
 import { eventTemplateIds } from '../../../utils/constans'
+import { SimplePublicObjectInput } from '@hubspot/api-client/lib/codegen/crm/contacts/api'
 const hubspotClient = new hubspot.Client({})
 
 type Data = {
@@ -24,6 +25,9 @@ export default async function handler(
     return
   }
   if (req.method === 'POST') {
+    hubspotClient.crm.contacts.basicApi.update('', {
+      properties: { ownderId: '12031054' },
+    } as SimplePublicObjectInput)
     const isValidWebhookCall = hubspotClient.webhooks.validateSignature(
       signature,
       clientSecret,

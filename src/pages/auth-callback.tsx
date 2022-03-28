@@ -24,7 +24,11 @@ const AuthCallbackPage: NextPage<{
       <LPHeader></LPHeader>
 
       <SimpleLayout>
-        <div>{installed ? 'installed' : 'not installed'}</div>
+        <div>
+          {installed
+            ? 'FCM has been installed on your HubSpot portal. You can contact tyler@dshukertjr.dev to procede with the setup.'
+            : 'Not installed'}
+        </div>
         <div>{errorMessage}</div>
       </SimpleLayout>
 
